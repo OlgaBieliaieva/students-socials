@@ -5,7 +5,7 @@ const pageStyles = {
   height: '100vh',
 };
 
-function Home() {
+export const Home=()=> {
   return (
     <main style={pageStyles}>
         <Hero/>
@@ -13,4 +13,4 @@ function Home() {
     </main>
   );
 }
-export default Home;
+
