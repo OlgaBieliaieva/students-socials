@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/students-socials/static/css/main.72df4541.css",
+    "main.js": "/students-socials/static/js/main.87b13974.js",
+    "static/media/logo.png": "/students-socials/static/media/logo.23bebd67014aca4082b6.png",
+    "static/media/hero.jpg": "/students-socials/static/media/hero.1af29adf25a4b621084e.jpg",
+    "index.html": "/students-socials/index.html",
+    "main.72df4541.css.map": "/students-socials/static/css/main.72df4541.css.map",
+    "main.87b13974.js.map": "/students-socials/static/js/main.87b13974.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.72df4541.css",
+    "static/js/main.87b13974.js"
+  ]
+}
