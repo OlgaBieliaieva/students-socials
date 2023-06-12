@@ -10,8 +10,7 @@ import { UsersList } from 'components/UsersList/UsersList';
 const pageStyles = {
   display: 'flex',
   flexDirection: 'column',
-  width: '100%',
-  height: '100vh',
+  width: '100%',  
   background: '#EBD8FF',
 };
 
