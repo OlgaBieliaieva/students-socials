@@ -12,9 +12,17 @@ export const Statistics = () => {
 
   return (
     <div className={css.statContainer}>
-      <LeaderboardIcon />
+      <div>
+      <LeaderboardIcon/>
       <p>{new Intl.NumberFormat().format(users.length)} users</p>
+      </div>
+      <div>
+      <LeaderboardIcon/>
       <p>{new Intl.NumberFormat().format(totalTweets)} tweets</p>
+      </div>
+      
+      
+      
     </div>
   );
 };

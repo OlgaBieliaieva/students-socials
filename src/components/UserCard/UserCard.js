@@ -57,8 +57,8 @@ export const UserCard = () => {
         />
         <div className={css.cardContent}>
           {/* <p>{username}</p> */}
-          <p>{tweets} tweets</p>
-          <p>{followers} followers</p>
+          <p>{new Intl.NumberFormat().format(tweets)} tweets</p>
+          <p>{new Intl.NumberFormat().format(followers)} followers</p>
         </div>
         {followings.includes(id) ? (
           <button
