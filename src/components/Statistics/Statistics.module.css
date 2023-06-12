@@ -1,0 +1,11 @@
+.statContainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+  font-weight: 500;
+  font-size: 20px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: capitalize;
+}

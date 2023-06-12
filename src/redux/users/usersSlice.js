@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUsers, 
-    // addContact, deleteContact, updateContact 
-} from './operations';
+import { refreshFollowings, fetchUsers } from './operations';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -16,6 +14,7 @@ const usersSlice = createSlice({
   name: 'users',
   initialState: {
     items: [],
+    followings: [],
     isLoading: false,
     error: null,
   },
@@ -27,39 +26,23 @@ const usersSlice = createSlice({
       state.items = action.payload;
     },
     [fetchUsers.rejected]: handleRejected,
-    // [addContact.pending]: handlePending,
-    // [addContact.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.items.push(action.payload);
-    // },
-    // [addContact.rejected]: handleRejected,
-    // [deleteContact.pending]: handlePending,
-    // [deleteContact.fulfilled](state, action) {
-    //   console.log(action);
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   const index = state.items.findIndex(
-    //     contact => contact.id === action.payload.id
-    //   );
-    //   state.items.splice(index, 1);
-    // },
-    // [deleteContact.rejected]: handleRejected,
-    // [updateContact.pending]: handlePending,
-    // [updateContact.fulfilled](state, action) {     
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   const index = state.items.findIndex(
-    //     contact => contact.id === action.payload.id
-    //   );      
-    //   state.items.splice(index, 1, {...action.payload});
-    // },
-    // [updateContact.rejected]: handleRejected,
-    // [logOut.fulfilled](state) {
-    //   state.items = [];
-    //   state.error = null;
-    //   state.isLoading = false;
-    // },
+
+    [refreshFollowings.pending]: handlePending,
+    [refreshFollowings.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const i = state.items.findIndex(user => user.id === action.payload.id);
+      state.items.splice(i, 1, { ...action.payload });
+      if (state.followings.includes(action.payload.id)) {
+        const index = state.followings.findIndex(
+          item => item === action.payload.id
+        );
+        state.followings.splice(index, 1);
+      } else {
+        state.followings.push(action.payload.id);
+      }
+    },
+    [refreshFollowings.rejected]: handleRejected,
   },
 });
 
